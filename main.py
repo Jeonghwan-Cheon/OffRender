@@ -104,11 +104,17 @@ def render_SVM_var_set(var_type, dir_list):
                         file_count += 1
 
 def main():
+    ###################################################################################################
+    # Set type of transformation and dataset below
+    ###################################################################################################
     var_type = "viewpoint"
-    #dir_list = os.listdir(route)
     #dir_list = ["bed", "chair", "desk", "dresser", "night_stand", "monitor", "sofa", "table", "toilet"]
-    dir_list = ["sofa", "table", "toilet"]
+    dir_list = os.listdir(route)
+    render_selectivity_var_set(var_type, dir_list)
+    render_invariance_test_set(var_type, dir_list, 1)
+    render_invariance_test_set(var_type, dir_list, 2)
     render_invariance_unit_set(var_type, dir_list)
+    render_SVM_var_set(var_type, dir_list)
 
 if __name__ == "__main__":
 	main()
